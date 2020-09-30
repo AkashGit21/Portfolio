@@ -1,0 +1,27 @@
+.App{
+    width: 100%;
+    min-height: 100%;
+}
+
+.PersonalDetails{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.Content{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 30%;
+}
+.Greeting{
+    font-weight: lighter;
+    font-style: italic;
+}
+.Name{
+    font-weight: bolder;
+}
