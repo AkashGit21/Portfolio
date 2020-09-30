@@ -1,7 +1,7 @@
 import React from 'react';
 import Gmail from '../../../assets/IconGmail.png';
-import './Icon.css';
+import classes from './Icon.css';
 
-const IconGmail = ()=> <img src={Gmail} alt="Gmail Link" className="Icon" />;
+const IconGmail = ()=> <img src={Gmail} alt="Gmail Link" className={classes.Icon} />;
 
 export default IconGmail;

@@ -4,8 +4,9 @@ import styled from 'styled-components';
 
 const MainContainer = styled.main`
     width: 60%;
-    height: 100%;
-    margin: 20px 20%;
+    height: 80vh;
+    margin: 0;
+    padding: 10vh 0 0 20%;
 `;
 
 const Title = styled.div`
@@ -18,7 +19,6 @@ const ContentContainer = styled.div`
     width: 100%;
     height: 100%;
 `;
-
 
 const sectionContainer = (props)=>{
     return (

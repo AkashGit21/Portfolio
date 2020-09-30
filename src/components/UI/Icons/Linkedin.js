@@ -1,7 +1,7 @@
 import React from 'react';
 import Linkedin from '../../../assets/IconLinkedin.png';
-import './Icon.css';
+import classes from './Icon.css';
 
-const IconLinkedin = ()=> <img src={Linkedin} alt="Fb Link" className="Icon" />;
+const IconLinkedin = ()=> <img src={Linkedin} alt="Fb Link" className={classes.Icon} />;
 
 export default IconLinkedin;
