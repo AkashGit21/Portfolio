@@ -13,24 +13,24 @@
     padding: 0;
     width: 100%;
     text-align: right;
-    background-color:  rgb(85, 83, 92);
+    background-color:  mediumseagreen;
 }
 .Header li{
     display: inline-block;
-    background-color:  rgb(85, 83, 92);
 }
 
-.Header li a{
+.Header a{
     display: block;
     padding: 10px;
     text-decoration: none;
-    color:white;
+    color: white;
 }
-.Header a:hover{
+.Header a:hover,
+.Header a.myActive{
     display: block;
     border-radius: 5px;
     background-color:  white;
-    color: green;
+    color: mediumseagreen;
 }
 
 .Logo{

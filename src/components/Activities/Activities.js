@@ -1,97 +1,78 @@
-import React from 'react';
+import React, {Component} from 'react';
 import styled from 'styled-components';
 import SectionContainer from '../../containers/SectionContainer/SectionContainer';
+import classes from './Activities.css';
 
-const Activities = styled.article`
-    width: 70%;
-    min-height: 100%;
-    margin-left: 10%;
-    margin-top: 10%;    
-`;
-
-const ActivityTypeContainer = styled.div`
-    display: inline-block;
-    width: 30%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: white;
-`;
-
-const ActivityType = styled.section`
-    display: block;
-    padding: 5px;
-    background-color: black;
-    border: 2px solid green;
-    border-radius: 15px;
-`;
-
-const ActivitiesListContainer = styled.div`
-    display: inline-block;
-    width: 70%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-`;
-
-const ActivitiesList = styled.section`    
-    display: block;
-    padding: 5px;
-    background-color: black;
-    border: 2px solid green;
-    border-radius: 5px;
-`;
-
-const activitiesData = [
-    {
-      field: "Technical", 
-      activitiesList:[
-        "Secured 21st position at Cadathon MANIT (an Inter NIT Coding Contest) among 6000 students.",
-        "Won Inception 3.1 organized by ACM NIT-Surat",
-        "Won Codewars organized by Hertz SVNIT.",
-        "ABC" 
-      ]
-    }, {
-      field: "School", 
-      activitiesList:[
-        "Secured 21st position at Cadathon MANIT (an Inter NIT Coding Contest) among 6000 students.",
-        "Won Inception 3.1 organized by ACM NIT-Surat",
-        "Won Codewars organized by Hertz SVNIT.",
-        "ABC" 
-      ]
-    }, {
-      field: "Extra Curricular", 
-      activitiesList:[
-        "Secured 21st position at Cadathon MANIT (an Inter NIT Coding Contest) among 6000 students.",
-        "Won Inception 3.1 organized by ACM NIT-Surat",
-        "Won Codewars organized by Hertz SVNIT.",
-        "ABC" 
-      ]
+class activities extends Component{  
+    
+    constructor(props){
+        super(props);
+        this.state = {
+            currentActivity: 'Technical',
+            activityType : ["Technical","School","Extra Curricular"],
+            activitiesList: [
+                {'Technical': [
+                    "Secured 21st position at Cadathon MANIT (an Inter NIT Coding Contest) among 6000 students.",
+                    "Won Inception 3.1 organized by ACM NIT-Surat",
+                    "Won Codewars organized by Hertz SVNIT.",
+                    "ABC" ] 
+                }
+                , { "School":[
+                    "School 1",
+                    "School 2",
+                    "Won Codewars organized by Hertz SVNIT.",
+                    "ABC" ]
+                }, {"Extra Curricular": [
+                    "Secured 21st position at Cadathon MANIT (an Inter NIT Coding Contest) among 6000 students.",
+                    "Won Inception 3.1 organized by ACM NIT-Surat",
+                    "Won Codewars organized by Hertz SVNIT.",
+                    "ABC" ]
+                }
+            ],
+        }
     }
-]
 
-const activities = () =>{
+    changeActivity = (id)=>{
+        // const curActivity = this.state.activities[0];
+        // console.log( curActivity);
+        // const listToDisplay = curActivity.activitiesList;
+        // console.log(listToDisplay);
+    }
 
-    const activitiesList = (
-        <div></div>
-    );
+    render(){       
 
-    return ( 
-        <SectionContainer title="Activities"> 
-            <Activities>
-                <ActivityTypeContainer>
-                    {activitiesData.map(activity => {
-                        return (
-                                <ActivityType> {activity.field} </ActivityType>
-                        );
-                    })}
-                </ActivityTypeContainer>
-                <ActivitiesListContainer>
-                    <ActivitiesList>{activitiesList}</ActivitiesList>
-                </ActivitiesListContainer>
-            </Activities>
-        </SectionContainer> 
-    );
+        if(this.state.currentActivity === null) 
+            this.setState({currentActivity:'Technical'});
+        let curActivitiesList = this.state.activitiesList[this.state.currentActivity];
+        if(curActivitiesList)
+            console.log(curActivitiesList);
+
+        return (
+            <SectionContainer title="Activities"> 
+                <article className={classes.Activities}>
+
+                    <section className={classes.ActivityTypeContainer}>
+                        {this.state.activityType.map(activity => {
+                            return (
+                                    <div className={classes.ActivityType} 
+                                        onClick={() => this.changeActivity(activity.id)} 
+                                        key={activity}> 
+                                        {activity} </div>
+                            );
+                        })}
+                    </section>
+
+                    <section className={classes.ActivitiesListContainer}>
+                        {curActivitiesList}
+                        {/* {curActivitiesList.map(activityList=>{
+                            return <div className={classes.ActivityList}>{activityList}</div>
+                        }) }                     */}
+                    </section>
+
+                </article>
+            </SectionContainer> 
+        );
+    }
 }
 
 export default activities;
