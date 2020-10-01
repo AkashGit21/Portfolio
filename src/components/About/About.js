@@ -4,7 +4,11 @@ import SectionContainer from '../../containers/SectionContainer/SectionContainer
 const about = (props) =>{
     return ( 
         <SectionContainer title="About Me"> 
-            <div> A B C</div>
+            <div> 
+            	<p> A </p>
+            	<p> B </p>
+            	<p> C </p>
+            </div>
         </SectionContainer>
     );
 }
